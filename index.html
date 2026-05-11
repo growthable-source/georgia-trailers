@@ -666,6 +666,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
   border: 2px solid var(--ink);
   padding: 28px 26px;
   position: relative;
+  z-index: 0; /* Keep pseudo-element behind card content */
 }
 .testimonial::before {
   content: "“";
@@ -677,6 +678,13 @@ header .container { display: flex; justify-content: space-between; align-items: 
   color: var(--blaze);
   background: var(--bone);
   padding: 0 6px;
+  z-index: 0;
+}
+.testimonial .stars,
+.testimonial-text,
+.testimonial-author {
+  position: relative;
+  z-index: 1;
 }
 .stars { display: flex; gap: 2px; margin-bottom: 12px; }
 .stars svg { width: 18px; height: 18px; fill: var(--gold); }
@@ -1371,10 +1379,6 @@ footer img { height: 40px; opacity: 0.9; }
       <details class="faq-item">
         <summary class="faq-q">Do you deliver?</summary>
         <div class="faq-a">Yes, we deliver across Georgia and surrounding states. Call us with your ZIP and we'll quote delivery at the same time we quote the trailer.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">Can I trade in my current trailer?</summary>
-        <div class="faq-a">Absolutely. Tell us what you've got when you request your quote — we make fair offers and apply the value directly to your new trailer.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Are your prices really the lowest in the Southeast?</summary>
