@@ -26,6 +26,10 @@ Migrated the static `index.html` landing page to Next.js 15 (App Router, TypeScr
 - `public/fonts/**`, `public/images/**`
 - `README.md`, `GTO_HANDOVER.md`, `CHANGELOG.md`, `.env.example`
 
+### Follow-up fix (same day)
+- Category cards now `Link` to dedicated routes (were `#lead-form` → stayed on home)
+- Landing content is path-driven via `usePathname()` + `src/lib/pages.tsx` so each URL always renders its own hero/inventory
+
 ### Open items for next session
 - Drop real Meta Pixel, Google Ads, GA4 IDs into Vercel env / `.env.local`
 - Set `NEXT_PUBLIC_GHL_WEBHOOK_URL` (same hook as previous HTML)
