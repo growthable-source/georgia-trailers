@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
+
 const categories = [
   {
     track: "cat_dump",
     cat: "Dump Trailers",
-    trailer: "Dump Trailer",
+    href: "/dump-trailers",
     title: "Dump Trailers",
     count: "From $9,995",
     icon: (
@@ -16,7 +18,7 @@ const categories = [
   {
     track: "cat_equipment",
     cat: "Equipment Haulers",
-    trailer: "Equipment Hauler",
+    href: "/equipment-haulers",
     title: "Equipment Haulers",
     count: "For skid steers & more",
     icon: (
@@ -28,7 +30,7 @@ const categories = [
   {
     track: "cat_flatbed",
     cat: "Flatbed / Gooseneck",
-    trailer: "Flatbed / Gooseneck",
+    href: "/flatbed-gooseneck-trailers",
     title: "Flatbed & Gooseneck",
     count: "Heavy-duty hauling",
     icon: (
@@ -40,7 +42,7 @@ const categories = [
   {
     track: "cat_tilt",
     cat: "Tilt Decks",
-    trailer: "Tilt Deck",
+    href: "/#lead-form",
     title: "Tilt Decks",
     count: "From $11,995",
     icon: (
@@ -52,7 +54,7 @@ const categories = [
   {
     track: "cat_enclosed",
     cat: "Enclosed / Cargo",
-    trailer: "Enclosed / Cargo",
+    href: "/enclosed-cargo-trailers",
     title: "Enclosed Cargo",
     count: "From $5,295",
     icon: (
@@ -64,7 +66,7 @@ const categories = [
   {
     track: "cat_utility",
     cat: "Utility",
-    trailer: "Utility Trailer",
+    href: "/utility-trailers",
     title: "Utility Trailers",
     count: "Budget-friendly",
     icon: (
@@ -76,12 +78,6 @@ const categories = [
 ];
 
 export function CategoryGrid() {
-  function selectTrailer(trailer: string) {
-    window.dispatchEvent(
-      new CustomEvent("gto:select-trailer", { detail: trailer })
-    );
-  }
-
   return (
     <section className="section">
       <div className="container">
@@ -96,19 +92,19 @@ export function CategoryGrid() {
 
         <div className="cat-grid">
           {categories.map((c) => (
-            <a
+            <Link
               key={c.track}
-              href="#lead-form"
+              href={c.href}
               className="cat-card"
               data-track={c.track}
               data-cat={c.cat}
-              onClick={() => selectTrailer(c.trailer)}
+              prefetch
             >
               <div className="cat-card-icon">{c.icon}</div>
               <div className="cat-card-title">{c.title}</div>
               <div className="cat-card-count">{c.count}</div>
               <div className="cat-arrow">See In Stock →</div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

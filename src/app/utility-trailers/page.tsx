@@ -10,12 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function UtilityTrailersPage() {
-  return (
-    <LandingPage
-      headline="UTILITY TRAILERS. BUDGET-FRIENDLY."
-      subhead="Single-axle and tandem utility trailers for landscapers, homeowners, and small business. Lowest prices in the Southeast."
-      defaultTrailer="Utility Trailer"
-      inventoryFilter="utility"
-    />
-  );
+  return <LandingPage />;
 }

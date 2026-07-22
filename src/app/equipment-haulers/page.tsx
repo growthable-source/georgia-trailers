@@ -10,12 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function EquipmentHaulersPage() {
-  return (
-    <LandingPage
-      headline="EQUIPMENT HAULERS. WORK-READY."
-      subhead="Skid steer, mini-excavator, tractor haulers. New and used, in stock at our Cartersville lot."
-      defaultTrailer="Equipment Hauler"
-      inventoryFilter="equipment"
-    />
-  );
+  return <LandingPage />;
 }

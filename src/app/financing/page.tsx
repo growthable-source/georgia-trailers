@@ -10,11 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function FinancingPage() {
-  return (
-    <LandingPage
-      headline="NO CREDIT CHECK FINANCING. APPROVED IN MINUTES."
-      subhead="Bad credit, no credit, no problem. Same-day approvals, competitive rates that beat the banks. Apply now."
-      defaultTrailer=""
-    />
-  );
+  return <LandingPage />;
 }

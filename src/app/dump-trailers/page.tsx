@@ -10,12 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function DumpTrailersPage() {
-  return (
-    <LandingPage
-      headline="DUMP TRAILERS BUILT FOR THE JOB."
-      subhead="Heavy-duty dump trailers in stock at our Cartersville, GA lot. Hydraulic lift, 10K-14K GVWR, no credit check financing available."
-      defaultTrailer="Dump Trailer"
-      inventoryFilter="dump"
-    />
-  );
+  return <LandingPage />;
 }

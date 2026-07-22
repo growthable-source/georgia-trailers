@@ -12,12 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function FlatbedGooseneckTrailersPage() {
-  return (
-    <LandingPage
-      headline="FLATBED & GOOSENECK. HAUL ANYTHING."
-      subhead="Heavy-duty flatbed and gooseneck trailers built for contractors and farmers. In stock now, drive off today."
-      defaultTrailer="Flatbed / Gooseneck"
-      inventoryFilter="flatbed"
-    />
-  );
+  return <LandingPage />;
 }

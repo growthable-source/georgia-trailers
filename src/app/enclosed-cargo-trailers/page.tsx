@@ -10,12 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function EnclosedCargoTrailersPage() {
-  return (
-    <LandingPage
-      headline="ENCLOSED CARGO. LOCKED, LOADED, READY."
-      subhead="6x12 to 8.5x24 enclosed cargo trailers — single & tandem axle. Cartersville, GA lot, 45 minutes from Atlanta."
-      defaultTrailer="Enclosed / Cargo"
-      inventoryFilter="enclosed"
-    />
-  );
+  return <LandingPage />;
 }

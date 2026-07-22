@@ -11,23 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return (
-    <LandingPage
-      headline={
-        <>
-          Trailers <span className="blaze">Built Tough.</span>
-          <br />
-          Prices <span className="underline">Built Right.</span>
-        </>
-      }
-      subhead={
-        <>
-          Dump, flatbed, tilt, enclosed, utility &amp; equipment trailers in
-          stock at our Cartersville, GA lot — 45 minutes north of Atlanta. Drive
-          off today with <strong>no credit check financing</strong> and zero
-          high-pressure sales.
-        </>
-      }
-    />
-  );
+  return <LandingPage />;
 }

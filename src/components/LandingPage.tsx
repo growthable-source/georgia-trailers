@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
@@ -11,32 +13,23 @@ import { LotVisit } from "@/components/sections/LotVisit";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
-import type { InventoryCategory, TrailerOption } from "@/lib/site";
+import { getPageConfig } from "@/lib/pages";
 
-type LandingPageProps = {
-  headline: ReactNode;
-  subhead: ReactNode;
-  defaultTrailer?: TrailerOption | "";
-  inventoryFilter?: InventoryCategory | InventoryCategory[];
-};
+export function LandingPage() {
+  const pathname = usePathname() || "/";
+  const config = getPageConfig(pathname);
 
-export function LandingPage({
-  headline,
-  subhead,
-  defaultTrailer = "",
-  inventoryFilter,
-}: LandingPageProps) {
   return (
-    <>
+    <div data-page={config.path} key={config.path}>
       <Header />
       <Hero
-        headline={headline}
-        subhead={subhead}
-        defaultTrailer={defaultTrailer}
+        headline={config.headline}
+        subhead={config.subhead}
+        defaultTrailer={config.defaultTrailer ?? ""}
       />
       <TrustStrip />
       <CategoryGrid />
-      <HotInventory filter={inventoryFilter} />
+      <HotInventory filter={config.inventoryFilter} />
       <FinancingBlock />
       <BrandsRow />
       <Testimonials />
@@ -44,6 +37,6 @@ export function LandingPage({
       <FAQ />
       <FinalCTA />
       <Footer />
-    </>
+    </div>
   );
 }

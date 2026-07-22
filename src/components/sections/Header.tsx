@@ -46,7 +46,12 @@ export function Header() {
 
       <header>
         <div className="container">
-          <Link href="/" className="logo-wrap" aria-label="Georgia Trailer Outlet">
+          <Link
+            href="/"
+            className="logo-wrap"
+            aria-label="Georgia Trailer Outlet"
+            prefetch={false}
+          >
             <Image
               src="/images/gto-logo.webp"
               alt="Georgia Trailer Outlet"
