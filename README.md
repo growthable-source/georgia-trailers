@@ -15,24 +15,22 @@ https://go.georgiatraileroutlet.com
 
 Do not use the lot number `(770) 608-6882` on this page. All `tel:` links and visible numbers must stay on the Twilio ads line.
 
-## Before going live
+## Tracking config (`window.GTO_ADS` in `index.html`)
 
-Edit the **single** `window.GTO_ADS` block at the top of `<head>` in `index.html`. Replace these four placeholders once — Pixel, gtag `config`, and every `send_to` path read from that object.
+Google Ads values are live. Meta Pixel ID is still a placeholder — do not invent one.
 
-| Constant | Placeholder (leave until you have the real value) | What it is |
+| Constant | Value | What it is |
 | --- | --- | --- |
-| `META_PIXEL_ID` | `YOUR_PIXEL_ID` | Meta Pixel ID |
-| `GOOGLE_ADS_ID` | `AW-XXXXXXXXX` | Google Ads tag ID |
-| `PHONE_CALL_LABEL` | `PHONE_CALL_LABEL` | Google Ads conversion label for click-to-call |
-| `LEAD_FORM_LABEL` | `LEAD_FORM_LABEL` | Google Ads conversion label for form submit |
-
-Do not invent IDs. Leave the placeholders until Ads Manager / Events Manager values are confirmed.
+| `META_PIXEL_ID` | `YOUR_PIXEL_ID` | Meta Pixel ID — **still replace** |
+| `GOOGLE_ADS_ID` | `AW-814177997` | Google Ads tag ID |
+| `PHONE_CALL_LABEL` | `gz8oCMKryPocEM29nYQD` | Click-to-call conversion (`send_to` `AW-814177997/gz8oCMKryPocEM29nYQD`) |
+| `LEAD_FORM_LABEL` | `vblbCK2dy_ocEM29nYQD` | Lead-form conversion (`send_to` `AW-814177997/vblbCK2dy_ocEM29nYQD`) |
 
 Also confirm:
 
 1. Twilio `(770) 796-5038` forwards to the lot.
-2. Meta Pixel PageView fires after `META_PIXEL_ID` is set.
-3. Google Ads conversions fire on phone click + form submit after `GOOGLE_ADS_ID` and both labels are set.
+2. Replace `META_PIXEL_ID` when the real Pixel ID is available.
+3. Google Ads conversions fire on phone click + form submit (gtag loads `AW-814177997`).
 4. (Optional) Swap testimonial quotes for real Google reviews.
 
 ## Events
