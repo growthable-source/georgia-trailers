@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hundreds of trailers in stock at the lowest prices in the Southeast. No credit check financing. Dump, flatbed, tilt, enclosed & utility trailers in Cartersville, GA. Call (770) 608-6882.">
+<meta name="description" content="Hundreds of trailers in stock at the lowest prices in the Southeast. No credit check financing. Dump, flatbed, tilt, enclosed & utility trailers in Cartersville, GA. Call (770) 796-5038.">
 <meta name="robots" content="index, follow">
 <title>Trailers for Sale Near Atlanta | No Credit Check Financing | Georgia Trailer Outlet</title>
 
@@ -19,32 +19,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <!-- =========================================================
-     META PIXEL — REPLACE YOUR_PIXEL_ID WITH CLIENT'S PIXEL ID
+     ADS CONFIG — REPLACE THESE FOUR VALUES ONCE
+     Live: https://go.georgiatraileroutlet.com
+     Twilio ads number: (770) 796-5038  /  tel:+17707965038
+     =========================================================
+     META_PIXEL_ID      → Meta Pixel ID          (not YOUR_PIXEL_ID)
+     GOOGLE_ADS_ID      → Google Ads tag         (not AW-XXXXXXXXX)
+     PHONE_CALL_LABEL   → click-to-call conversion label
+     LEAD_FORM_LABEL    → lead-form conversion label
      ========================================================= -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');         // <-- REPLACE
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+window.GTO_ADS = {
+  META_PIXEL_ID: 'YOUR_PIXEL_ID',
+  GOOGLE_ADS_ID: 'AW-XXXXXXXXX',
+  PHONE_CALL_LABEL: 'PHONE_CALL_LABEL',
+  LEAD_FORM_LABEL: 'LEAD_FORM_LABEL'
+};
 
-<!-- =========================================================
-     GOOGLE ADS CONVERSION TRACKING — REPLACE AW-XXXXXX
-     ========================================================= -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
-<script>
+(function (cfg) {
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', cfg.META_PIXEL_ID);
+  fbq('track', 'PageView');
+
+  var gs = document.createElement('script');
+  gs.async = true;
+  gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(cfg.GOOGLE_ADS_ID);
+  document.head.appendChild(gs);
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
   gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXXXX');
+  gtag('config', cfg.GOOGLE_ADS_ID);
+})(window.GTO_ADS);
 </script>
 
 <style>
@@ -155,6 +168,7 @@ header .container { display: flex; justify-content: space-between; align-items: 
 }
 .header-cta:hover { background: var(--blaze-dark); border-color: var(--blaze-dark); }
 .header-cta svg { width: 16px; height: 16px; fill: white; }
+.header-cta .show-sm { display: none; }
 
 /* =========================
    HERO
@@ -843,6 +857,7 @@ footer {
 }
 footer .container { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
 footer img { height: 40px; opacity: 0.9; }
+footer a { color: inherit; }
 
 /* =========================
    STICKY MOBILE CALL BAR
@@ -873,8 +888,13 @@ footer img { height: 40px; opacity: 0.9; }
   gap: 6px;
 }
 .sticky-mobile a svg { width: 16px; height: 16px; fill: currentColor; }
-.sticky-mobile .call { background: var(--blaze); color: white; }
-.sticky-mobile .quote { background: var(--bone); color: var(--ink); }
+.sticky-mobile .call {
+  background: var(--blaze);
+  color: white;
+  flex: 1.75;
+  font-size: 15px;
+}
+.sticky-mobile .quote { background: var(--bone); color: var(--ink); flex: 0.9; }
 
 /* =========================
    RESPONSIVE
@@ -889,8 +909,10 @@ footer img { height: 40px; opacity: 0.9; }
   .section { padding: 70px 0; }
   .final-cta { padding: 70px 0 90px; }
   .sticky-mobile { display: flex; }
-  body { padding-bottom: 72px; }
+  body { padding-bottom: 76px; }
   .header-cta span.hide-sm { display: none; }
+  .header-cta span.show-sm { display: inline; }
+  .hero-cta-row .btn-primary { flex: 1 1 100%; justify-content: center; }
   .topbar { font-size: 13px; }
   .topbar-left { display: none; }
   .hero-badges { gap: 18px; }
@@ -926,9 +948,9 @@ footer img { height: 40px; opacity: 0.9; }
         Mon–Fri 9–5 · Sat 9–1
       </span>
     </div>
-    <a href="tel:+17706086882" class="topbar-phone" data-track="topbar_call">
+    <a href="tel:+17707965038" class="topbar-phone" data-track="topbar_call">
       <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
-      (770) 608-6882
+      (770) 796-5038
     </a>
   </div>
 </div>
@@ -939,10 +961,10 @@ footer img { height: 40px; opacity: 0.9; }
     <a href="#" class="logo-wrap" aria-label="Georgia Trailer Outlet">
       <img src="https://georgiatraileroutlet.com/image/gto_logo.png" alt="Georgia Trailer Outlet">
     </a>
-    <a href="#lead-form" class="header-cta" data-track="header_cta">
-      <span class="hide-sm">Get My Quote</span>
-      <span style="display:none" class="show-sm">Quote</span>
-      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+    <a href="tel:+17707965038" class="header-cta" data-track="header_call">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
+      <span class="hide-sm">Call (770) 796-5038</span>
+      <span class="show-sm">Call Now</span>
     </a>
   </div>
 </header>
@@ -962,13 +984,13 @@ footer img { height: 40px; opacity: 0.9; }
         </p>
 
         <div class="hero-cta-row">
-          <a href="#lead-form" class="btn btn-primary" data-track="hero_quote">
+          <a href="tel:+17707965038" class="btn btn-primary" data-track="hero_call">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
+            Call (770) 796-5038
+          </a>
+          <a href="#lead-form" class="btn btn-outline" data-track="hero_quote">
             Get My Instant Quote
             <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-          </a>
-          <a href="tel:+17706086882" class="btn btn-outline" data-track="hero_call">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
-            (770) 608-6882
           </a>
         </div>
 
@@ -1228,18 +1250,18 @@ footer img { height: 40px; opacity: 0.9; }
           <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Drive Off Today</li>
         </ul>
         <div class="finance-cta-row">
-          <a href="#lead-form" class="btn btn-on-blaze" data-track="finance_apply">Start My Application</a>
-          <a href="tel:+17706086882" class="btn btn-on-blaze-outline" data-track="finance_call">
+          <a href="tel:+17707965038" class="btn btn-on-blaze" data-track="finance_call">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
-            Call Now
+            Call (770) 796-5038
           </a>
+          <a href="#lead-form" class="btn btn-on-blaze-outline" data-track="finance_apply">Start My Application</a>
         </div>
       </div>
       <div class="finance-stat-card">
         <div class="big">5 MIN</div>
         <div class="label">To Get Pre-Approved</div>
         <hr class="hr">
-        <div class="tiny">Most customers get an answer in under 5 minutes. Fill the form or call (770) 608-6882 — takes two minutes, zero pressure.</div>
+        <div class="tiny">Most customers get an answer in under 5 minutes. Fill the form or call (770) 796-5038 — takes two minutes, zero pressure.</div>
       </div>
     </div>
   </div>
@@ -1329,7 +1351,7 @@ footer img { height: 40px; opacity: 0.9; }
 
         <div class="visit-block">
           <div class="visit-block-label">📞 Call or Text</div>
-          <div class="visit-block-value"><a href="tel:+17706086882" data-track="visit_call">(770) 608-6882</a></div>
+          <div class="visit-block-value"><a href="tel:+17707965038" data-track="visit_call">(770) 796-5038</a></div>
         </div>
 
         <div class="visit-block">
@@ -1394,13 +1416,13 @@ footer img { height: 40px; opacity: 0.9; }
     <h2>Ready To <span class="gold">Pull Away?</span><br>Let's Go.</h2>
     <p>Get your price in 5 minutes. No spam, no pressure, no credit check required to start.</p>
     <div class="final-cta-row">
-      <a href="#lead-form" class="btn btn-primary btn-xl" data-track="final_quote">
+      <a href="tel:+17707965038" class="btn btn-primary btn-xl" data-track="final_call">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
+        Call (770) 796-5038
+      </a>
+      <a href="#lead-form" class="btn btn-outline btn-xl" data-track="final_quote">
         Get My Quote
         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-      </a>
-      <a href="tel:+17706086882" class="btn btn-outline btn-xl" data-track="final_call">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
-        (770) 608-6882
       </a>
     </div>
   </div>
@@ -1410,23 +1432,29 @@ footer img { height: 40px; opacity: 0.9; }
 <footer>
   <div class="container">
     <img src="https://georgiatraileroutlet.com/image/gto_logo.png" alt="Georgia Trailer Outlet">
-    <div>© 2026 Georgia Trailer Outlet · 45 Carson Loop NW, Cartersville, GA · (770) 608-6882</div>
+    <div>© 2026 Georgia Trailer Outlet · 45 Carson Loop NW, Cartersville, GA · <a href="tel:+17707965038" data-track="footer_call">(770) 796-5038</a></div>
   </div>
 </footer>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-mobile">
-  <a href="tel:+17706086882" class="call" data-track="sticky_call">
+  <a href="tel:+17707965038" class="call" data-track="sticky_call">
     <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11l-2.24 2.1z"/></svg>
-    Call Now
+    Call (770) 796-5038
   </a>
-  <a href="#lead-form" class="quote" data-track="sticky_quote">Get Quote →</a>
+  <a href="#lead-form" class="quote" data-track="sticky_quote">Get Quote</a>
 </div>
 
 <script>
 /* =========================================================
    CONVERSION TRACKING + FORM HANDLING
+   IDs/labels come from window.GTO_ADS in <head> — replace once there.
    ========================================================= */
+
+function gadsSendTo(label) {
+  var cfg = window.GTO_ADS || {};
+  return (cfg.GOOGLE_ADS_ID || '') + '/' + (label || '');
+}
 
 // Fire Meta Pixel ViewContent when user reaches inventory section (engaged visitor)
 const inventorySection = document.querySelector('.inventory-grid');
@@ -1448,7 +1476,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(el => {
     if (typeof fbq !== 'undefined') fbq('track', 'Contact', { method: 'phone' });
     if (typeof gtag !== 'undefined') {
       gtag('event', 'conversion', {
-        'send_to': 'AW-XXXXXXXXX/PHONE_CALL_LABEL', // REPLACE
+        'send_to': gadsSendTo((window.GTO_ADS || {}).PHONE_CALL_LABEL),
         'event_category': 'engagement',
         'event_label': el.getAttribute('data-track') || 'phone_call'
       });
@@ -1509,7 +1537,7 @@ form.addEventListener('submit', async function(e) {
   // Fire Google Ads conversion
   if (typeof gtag !== 'undefined') {
     gtag('event', 'conversion', {
-      'send_to': 'AW-XXXXXXXXX/LEAD_FORM_LABEL', // REPLACE
+      'send_to': gadsSendTo((window.GTO_ADS || {}).LEAD_FORM_LABEL),
       'value': 1.0,
       'currency': 'USD'
     });
@@ -1537,7 +1565,9 @@ form.addEventListener('submit', async function(e) {
     utm_term:     urlParams.get('utm_term')     || '',
     utm_content:  urlParams.get('utm_content')  || '',
     gclid:        urlParams.get('gclid')        || '',
-    fbclid:       urlParams.get('fbclid')       || ''
+    fbclid:       urlParams.get('fbclid')       || '',
+    wbraid:       urlParams.get('wbraid')       || '',
+    gbraid:       urlParams.get('gbraid')       || ''
   };
 
   // Build the payload for GHL
